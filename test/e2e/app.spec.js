@@ -1,6 +1,6 @@
 describe("app", function() {
-  it("should get home page title", function() {
+  it("should say 'Hello world' on the page", function() {
     browser.get('/');
-    expect(browser.getTitle()).toEqual("YOUR APP TITLE HERE!!!!!!!!!");
+    expect($$("p").first().getText()).toEqual("Hello world");
   });
 });
