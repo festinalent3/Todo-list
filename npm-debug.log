@@ -1,0 +1,41 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/Users/emmasjostrom/.nvm/versions/node/v4.0.0/bin/node',
+1 verbose cli   '/Users/emmasjostrom/.nvm/versions/node/v4.0.0/bin/npm',
+1 verbose cli   'run',
+1 verbose cli   'protractor',
+1 verbose cli   'test/protractor.conf.js' ]
+2 info using npm@2.14.2
+3 info using node@v4.0.0
+4 verbose run-script [ 'preprotractor', 'protractor', 'postprotractor' ]
+5 info preprotractor todo-list@1.0.0
+6 info protractor todo-list@1.0.0
+7 verbose unsafe-perm in lifecycle true
+8 info todo-list@1.0.0 Failed to exec protractor script
+9 verbose stack Error: todo-list@1.0.0 protractor: `./node_modules/protractor/bin/protractor "test/protractor.conf.js"`
+9 verbose stack Exit status 1
+9 verbose stack     at EventEmitter.<anonymous> (/Users/emmasjostrom/.nvm/versions/node/v4.0.0/lib/node_modules/npm/lib/utils/lifecycle.js:214:16)
+9 verbose stack     at emitTwo (events.js:87:13)
+9 verbose stack     at EventEmitter.emit (events.js:172:7)
+9 verbose stack     at ChildProcess.<anonymous> (/Users/emmasjostrom/.nvm/versions/node/v4.0.0/lib/node_modules/npm/lib/utils/spawn.js:24:14)
+9 verbose stack     at emitTwo (events.js:87:13)
+9 verbose stack     at ChildProcess.emit (events.js:172:7)
+9 verbose stack     at maybeClose (internal/child_process.js:817:16)
+9 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:211:5)
+10 verbose pkgid todo-list@1.0.0
+11 verbose cwd /Users/emmasjostrom/Projects/Todo-list
+12 error Darwin 14.5.0
+13 error argv "/Users/emmasjostrom/.nvm/versions/node/v4.0.0/bin/node" "/Users/emmasjostrom/.nvm/versions/node/v4.0.0/bin/npm" "run" "protractor" "test/protractor.conf.js"
+14 error node v4.0.0
+15 error npm  v2.14.2
+16 error code ELIFECYCLE
+17 error todo-list@1.0.0 protractor: `./node_modules/protractor/bin/protractor "test/protractor.conf.js"`
+17 error Exit status 1
+18 error Failed at the todo-list@1.0.0 protractor script './node_modules/protractor/bin/protractor "test/protractor.conf.js"'.
+18 error This is most likely a problem with the todo-list package,
+18 error not with npm itself.
+18 error Tell the author that this fails on your system:
+18 error     ./node_modules/protractor/bin/protractor "test/protractor.conf.js"
+18 error You can get their info via:
+18 error     npm owner ls todo-list
+18 error There is likely additional logging output above.
+19 verbose exit [ 1, true ]
