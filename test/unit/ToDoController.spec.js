@@ -1,11 +1,19 @@
 describe('ToDoController', function() {
   beforeEach(module('toDoApp'));
+  var ctrl, httpBackend, ToDoFactory;
+  var toDoData = [{text: "ToDo1", completed: true}, {text: "ToDo2", completed: false}];
 
-  var ctrl, ToDoFactory;
-
-  beforeEach(inject(function($controller, _ToDoFactory_) {
+  beforeEach(inject(function($httpBackend, $controller, _ToDoFactory_) {
     ctrl = $controller('ToDoController');
     ToDoFactory = _ToDoFactory_;
+    httpBackend = $httpBackend;
+
+    // Mock out our http call
+    httpBackend.expectGET("http://quiet-beach-24792.herokuapp.com/todos.json").respond(toDoData);
+
+    // We have to flush straight away here so that by the time we do our tests
+    // the ToDos have been set to `self.todos`
+    httpBackend.flush();
   }));
 
   it('initialises with several todos', function() {
