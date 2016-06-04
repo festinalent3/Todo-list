@@ -1,8 +1,11 @@
 toDoApp.controller('ToDoController', ['ToDoService', 'ToDoFactory', function(ToDoService, ToDoFactory) {
   var self = this;
 
+  self.filterOptions = ['all', 'completed', 'not-completed']
+  self.selectedFilter = self.filterOptions[0];
+
   // Use the ToDoService to fetch our todos
-  ToDoService.getAll().then(function(todos){
+  ToDoService.fetchAll().then(function(todos){
     self.todos = todos;
   });
 
@@ -12,6 +15,19 @@ toDoApp.controller('ToDoController', ['ToDoService', 'ToDoFactory', function(ToD
 
   self.removeToDo = function (todoText) {
     self.todos.pop();
+  }
+
+  self.setFilter = function(selectedFilter) {
+    switch (selectedFilter) {
+      case 'completed':
+        self.todos = ToDoService.getCompleted();
+        break;
+      case 'not-completed':
+        self.todos = ToDoService.getNotCompleted();
+        break;
+      default:
+        self.todos = ToDoService.getAll();
+    }
   }
 
 }]);

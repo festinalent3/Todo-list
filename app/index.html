@@ -13,10 +13,18 @@
 <body>
   <body>
     <div id="todos" ng-controller="ToDoController as controller">
-      <label>Search ToDo's: <input ng-model="searchText"></label>
+      <label for="">Show: </label>
+      <select
+          ng-model="controller.selectedFilter"
+          ng-options="option for option in controller.filterOptions"
+          ng-change="controller.setFilter(controller.selectedFilter)"
+          name=""
+          id="select-ToDos">
+      </select>
+      <label>Search ToDo's: <input ng-model="searchToDos"></label>
       <table id="searchTextResults">
-        <tr ng-repeat="todo in controller.todos | filter:searchText">
-          <td>{{ todo.text }}: {{ todo.completed ? "completed" : "not completed" }}</td>
+        <tr ng-repeat="todo in controller.todos | filter:searchToDos">
+          <td>{{ todo.text }}:</td> <td>{{ todo.isComplete() }}</td>
           <td class="complete" ng-click="todo.complete();">Complete</td>
         </tr>
       </table>

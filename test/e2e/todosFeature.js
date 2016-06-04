@@ -50,11 +50,46 @@ describe('Todos tracker', function() {
 
   it('can search todos by name', function(){
     browser.get('/');
-    var searchText = element(by.model('searchText'));
+    var searchText = element(by.model('searchToDos'));
     searchText.clear();
     searchText.sendKeys('ToDo1');
     var todos = $$('#todos tr').last().getText();
     expect(todos).toMatch("ToDo1: completed");
+  });
+  
+
+  it('displays 3 options for filtering', function(){
+    browser.get('/');
+    var allOptions = element.all(by.options('option for option in controller.filterOptions'));
+    expect(allOptions.count()).toEqual(3);
+
+    var firstOption = allOptions.get(0);
+    expect(firstOption.getText()).toEqual('all');
+
+    var secondOption = allOptions.get(1);
+    expect(secondOption.getText()).toEqual('completed');
+
+    var thirdOption = allOptions.get(2);
+    expect(thirdOption.getText()).toEqual('not-completed');
+  });
+
+
+  it('can display only completed todos', function(){
+    browser.get('/');
+    var allOptions = element.all(by.options('option for option in controller.filterOptions'));
+    var secondOption = allOptions.get(1);
+    expect(secondOption.getText()).toEqual('completed');
+    secondOption.click();
+    var todos = $$('#todos tr').last().getText();
+    expect(todos).toMatch("ToDo1: completed");
+  });
+
+  //Alternative way of doing it as the text in option is unique
+  it('can display only not completed todos', function(){
+    browser.get('/');
+    element(by.cssContainingText('option', 'not-completed')).click();
+    var todos = $$('#todos tr').last().getText();
+    expect(todos).toMatch("ToDo2: not completed");
   });
 
   afterEach(function(){

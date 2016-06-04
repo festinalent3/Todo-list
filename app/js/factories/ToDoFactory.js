@@ -9,5 +9,9 @@ toDoApp.factory('ToDoFactory', function() {
     this.completed = true;
   };
 
+  ToDo.prototype.isComplete = function() {
+    return this.completed ? "completed" : "not completed"
+  }
+
   return ToDo;
 });
