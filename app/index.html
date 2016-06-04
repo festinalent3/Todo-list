@@ -13,10 +13,13 @@
 <body>
   <body>
     <div id="todos" ng-controller="ToDoController as controller">
-      <p ng-repeat="todo in controller.todos">
-        {{ todo.text }}: {{ todo.completed ? "completed" : "not completed" }}
-        <span class="complete" ng-click="todo.complete();">Complete</span>
-      </p>
+      <label>Search ToDo's: <input ng-model="searchText"></label>
+      <table id="searchTextResults">
+        <tr ng-repeat="todo in controller.todos | filter:searchText">
+          <td>{{ todo.text }}: {{ todo.completed ? "completed" : "not completed" }}</td>
+          <td class="complete" ng-click="todo.complete();">Complete</td>
+        </tr>
+      </table>
       <input id="new-todo-name" type="text" ng-model="todoText">
       <button id="add-todo" ng-click="controller.addToDo(todoText);">Add a ToDo</button>
       <button id="remove-todo" ng-click="controller.removeToDo();">Remove ToDo</button>
