@@ -4,7 +4,7 @@ toDoApp.service('ToDoService', ['$http', 'ToDoFactory', function($http, ToDoFact
   var todos;
 
   self.fetchAll = function() {
-    return $http.get('http://quiet-beach-24792.herokuapp.com/todos.json')
+    return $http.get('https://quiet-beach-24792.herokuapp.com/todos.json')
     .then(_handleResponseFromApi);
   };
 

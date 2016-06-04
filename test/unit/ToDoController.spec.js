@@ -9,7 +9,7 @@ describe('ToDoController', function() {
     httpBackend = $httpBackend;
 
     // Mock out our http call
-    httpBackend.expectGET("http://quiet-beach-24792.herokuapp.com/todos.json").respond(toDoData);
+    httpBackend.expectGET("https://quiet-beach-24792.herokuapp.com/todos.json").respond(toDoData);
 
     // We have to flush straight away here so that by the time we do our tests
     // the ToDos have been set to `self.todos`

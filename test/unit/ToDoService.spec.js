@@ -13,7 +13,7 @@ describe('ToDoService', function() {
     todo1 = new ToDoFactory("ToDo1", true);
     todo2 = new ToDoFactory("ToDo2", false);
 
-    httpBackend.expectGET("http://quiet-beach-24792.herokuapp.com/todos.json").respond(toDoData);
+    httpBackend.expectGET("https://quiet-beach-24792.herokuapp.com/todos.json").respond(toDoData);
 
   }));
 

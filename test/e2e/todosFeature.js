@@ -5,7 +5,7 @@ describe('Todos tracker', function() {
   beforeEach(function(){
     mock([{
       request: {
-        path: 'http://quiet-beach-24792.herokuapp.com/todos.json',
+        path: 'https://quiet-beach-24792.herokuapp.com/todos.json',
         method: 'GET'
       },
       response: {
@@ -56,7 +56,7 @@ describe('Todos tracker', function() {
     var todos = $$('#todos tr').last().getText();
     expect(todos).toMatch("ToDo1: completed");
   });
-  
+
 
   it('displays 3 options for filtering', function(){
     browser.get('/');
