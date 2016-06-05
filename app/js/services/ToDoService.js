@@ -14,7 +14,6 @@ toDoApp.service('ToDoService', ['$http', 'ToDoFactory', function($http, ToDoFact
     })
   };
 
-
   self.getNotCompleted = function(){
     return todos.filter(function(todo) {
       return todo.completed === false;

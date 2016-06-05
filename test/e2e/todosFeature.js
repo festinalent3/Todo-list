@@ -92,6 +92,12 @@ describe('Todos tracker', function() {
     expect(todos).toMatch("ToDo2: not completed");
   });
 
+  it('Displays total nr of tasks and total nr of active tasks', function() {
+    browser.get('/');
+    var totals = $$('#totals p');
+    expect(totals.getText()).toMatch('Total tasks: 2');
+  });
+
   afterEach(function(){
     mock.teardown();
   });
