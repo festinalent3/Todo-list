@@ -94,7 +94,7 @@ describe('Todos tracker', function() {
 
   it('displays total nr of tasks and total nr of active tasks', function() {
     browser.get('/');
-    var totals = $$('#totals p');
+    var totals = $$('#todos p');
     expect(totals.getText()).toMatch('Total tasks: 2');
   });
 
