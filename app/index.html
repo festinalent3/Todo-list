@@ -32,6 +32,7 @@
       <input id="new-todo-name" type="text" ng-model="todoText">
       <button id="add-todo" ng-click="controller.addToDo(todoText);">Add a ToDo</button>
       <button id="remove-todo" ng-click="controller.removeToDo();">Remove ToDo</button>
+      <button id="clear-tasks" ng-click="controller.clearToDos();">Clear completed ToDos</button>
     </div>
 
     <div id="totals" ng-controller="ToDoController as controller">

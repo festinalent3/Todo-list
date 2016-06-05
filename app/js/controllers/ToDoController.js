@@ -17,6 +17,11 @@ toDoApp.controller('ToDoController', ['ToDoService', 'ToDoFactory', function(ToD
     self.todos.pop();
   }
 
+  self.clearToDos = function () {
+    ToDoService.deleteCompleted();
+    self.todos = ToDoService.getAll();
+  }
+
   self.setFilter = function(selectedFilter) {
     switch (selectedFilter) {
       case 'completed':

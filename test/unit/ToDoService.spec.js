@@ -50,4 +50,12 @@ describe('ToDoService', function() {
 
   });
 
+  it('deletes all completed ToDos', function() {
+    ToDoService.fetchAll().then(function(todos) {
+      ToDoService.deleteCompleted()
+      expect(ToDoService.getAll()).toEqual([todo2]);
+    });
+    httpBackend.flush();
+  });
+
 });

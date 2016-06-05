@@ -24,6 +24,10 @@ toDoApp.service('ToDoService', ['$http', 'ToDoFactory', function($http, ToDoFact
     return todos;
   };
 
+  self.deleteCompleted = function() {
+    todos = self.getNotCompleted();
+  };
+
   function _handleResponseFromApi (response) {
     todos = response.data.map(function(toDoData){
       return new ToDoFactory(toDoData.text, toDoData.completed);

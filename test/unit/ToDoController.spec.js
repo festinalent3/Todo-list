@@ -38,4 +38,16 @@ describe('ToDoController', function() {
 
     expect(ctrl.todos.length).toEqual(initialCount - 1);
   });
+
+  it('clears completed todos', function() {
+    // var todo1 = new ToDoFactory("ToDo1", true);
+    var todo2 = new ToDoFactory("ToDo2", false);
+    initialCount = ctrl.todos.length;
+
+    ctrl.clearToDos();
+
+    expect(ctrl.todos.length).toEqual(initialCount - 1);
+    expect(ctrl.todos.pop()).toEqual(todo2);
+
+  });
 });
