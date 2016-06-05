@@ -2,6 +2,9 @@
 <html lang="en" ng-app="toDoApp">
 <head>
   <meta charset="utf-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <link href="assets/main.css" rel="stylesheet" type="text/css">
+
   <script src="bower_components/angular/angular.js"></script>
   <script src="js/app.js"></script>
   <script src="js/controllers/ToDoController.js"></script>
@@ -10,9 +13,13 @@
 
   <title>Todos App</title>
 </head>
-<body>
   <body>
+    <div class="container">
     <div id="todos" ng-controller="ToDoController as controller">
+      <div class='box' align='center'>
+
+      <label><h1>Search ToDo's: <input ng-model="searchToDos" id="search-box"></h1></label>
+      <br>
       <label for="">Show: </label>
       <select
       ng-model="controller.selectedFilter"
@@ -22,23 +29,22 @@
       id="select-ToDos">
     </select>
 
-    <label>Search ToDo's: <input ng-model="searchToDos"></label>
     <table id="searchTextResults">
       <tr ng-repeat="todo in controller.todos | filter:searchToDos">
         <td>{{ todo.text }}:</td> <td>{{ todo.isComplete() }}</td>
-        <td class="complete" ng-click="todo.complete();">Complete</td>
+        <td class="complete" ng-hide="todo.completed" ng-click="todo.complete();"> <img src='assets/images/checkmark.png'></td>
       </tr>
     </table>
     <input id="new-todo-name" type="text" ng-model="todoText">
     <button id="add-todo" ng-click="controller.addToDo(todoText);">Add a ToDo</button>
     <button id="remove-todo" ng-click="controller.removeToDo();">Remove last ToDo</button><br><br>
-
     <button id="clear-tasks" ng-click="controller.clearToDos();">Clear completed ToDos</button>
     <p>Total tasks: {{ controller.todos.length }} </p>
   </div>
+</div>
+</div>
 
 
-</body>
 
 </body>
 </html>
